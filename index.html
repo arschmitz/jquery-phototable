@@ -1,0 +1,128 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Photo Table</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="description" content="" />
+		<meta name="keywords" content=""/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+		<style>
+			
+			.phototable{
+				position:relative;
+				width:100%;
+				height:600px;
+				top:10px;
+				background:#999;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="phototable-options_bar" class="phototable-options_bar">
+			<a href="#" class="shuffle">Shuffle</a>
+			<a href="#" class="backdesk" style="display:none;">Disperse</a>
+			<a href="#" class="viewall">Stack</a>
+            <a href="#" class="captionsOn">Captions On</a>
+            <a href="#" class="captionsOff">Captions Off</a>
+            <a href="#" class="refresh">Refresh</a>
+            <a href="#" class="destroy">Destroy</a>
+            <a href="#" class="create">Create</a>
+            <a href="#" class="slideshow">Slideshow</a>
+            <a href="#" class="facebook">Pull Facebook Album</a>
+            <a href="#" class="showTag">Show Tag Button</a>
+            <a href="#" class="hideTag">Hide Tag Button</a>
+            <a href="#" class="grid">Grid</a>
+            <a href="#" class="filmstrip">Filmstrip</a>
+            <a href="#" class="mac">Mac Style</a>
+		</div>
+		<div id="phototable-container" class="phototable-container">
+			<div>
+					<img src="photos/1.jpg" alt=""/>
+                    <span>Erica</span>
+			</div>
+			<div>
+					<img src="photos/2.jpg" alt=""/>
+                    <span>Judy</span>
+			</div>
+			<div>
+					<img src="photos/3.jpg" alt=""/>
+                    <span>Kimberly</span>
+			</div>
+			<div>
+					<img src="photos/4.jpg" alt=""/>
+                    <span>Hellen</span>
+			</div>
+			<div>
+					<img src="photos/5.jpg" alt=""/>
+                    <span>Kristen</span>
+			</div>
+		</div>
+		<div id="testBox"></div>
+		<!-- The JavaScript -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+        <script src="src/jquery.ui.touch-punch.min.js"></script>
+		<script src="src/jquery.phototable.js"></script>
+		<script src="src/jquery.transform-0.6.2.min.js"></script>
+		<script src="src/jquery.animate-shadow-min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('#phototable-container').phototable({facebookAppId:'282797312000','photoW':110});
+				$('.shuffle').click(function(){
+					$('#phototable-container').phototable('shuffle');						 
+				});
+				$('.captionsOff').click(function(){
+					$('#phototable-container').phototable('option','captions',false);							 
+				});
+				$('.captionsOn').click(function(){
+					$('#phototable-container').phototable('option','captions',true);							 
+				});
+				$('.showTag').click(function(){
+					$('#phototable-container').phototable('option','facebookTags',true);							 
+				});
+				$('.hideTag').click(function(){
+					$('#phototable-container').phototable('option','facebookTags',false);							 
+				});
+				$('.refresh').click(function(){
+					$('#phototable-container').phototable('refresh');							 
+				});
+				$('.mac').click(function(){
+					$('#phototable-container').phototable('mac');							 
+				});
+				$('.backdesk').click(function(){
+					$('#phototable-container').phototable('disperse');
+					$(this).hide();
+					$('.viewall').show();
+				});
+				
+				$('.viewall').click(function(){
+					$('#phototable-container').phototable('stack');	
+					$(this).hide();
+					$('.backdesk').show();
+				});
+				$('.destroy').click(function(){
+					$('#phototable-container').phototable('destroy');							 
+				});
+				$('.filmstrip').click(function(){
+					$('#phototable-container').phototable('filmstrip');							 
+				});
+				$('.grid').click(function(){
+					$('#phototable-container').phototable('grid');							 
+				});
+				$('.create').click(function(){
+					$('#phototable-container').phototable();							 
+				});
+				$('.slideshow').click(function(){
+					$('#phototable-container').phototable('slideshow');							 
+				});
+				$('.facebook').click(function(){
+					$('#phototable-container').phototable('getFacebookAlbum','10150841866267675');							 
+				});
+				$('.facebookLogin').click(function(){
+					$('#phototable-container').phototable('facebookLogin');							 
+				});
+			});
+		</script>
+	</body>
+</html>

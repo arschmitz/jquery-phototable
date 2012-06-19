@@ -1,0 +1,168 @@
+
+.phototableTagBox{
+	position:absolute;
+	border:2px solid white;
+}
+a.phototable-next_photo,
+a.phototable-loading{
+	z-index:999999;
+	cursor:pointer;
+	border:1px solid #aaa;
+	width:50px;
+	height:50px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	opacity:0.8;
+	margin:-25px 0px 0px -25px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+}
+a.phototable-next_photo{
+	opacity:.5;
+}
+.phototable-caption{
+	position:absolute;
+	bottom:-20px;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+	font-weight:bold;
+	color:#000;
+	left:0px;
+	text-overflow:ellipsis;
+	display:block;
+	width:65%;
+	overflow:hidden;
+	white-space:nowrap;
+}
+.phototable-tagname{
+	position:absolute;
+	bottom:-27px;
+	left:-2px;
+}
+a.phototable-loading{
+	display:none;
+	background:#B8B8B8 url(../images/loading.gif) no-repeat 50% 50%;
+}
+a.phototable-next_photo{
+	background:#B8B8B8 url(../images/next.png) no-repeat 50% 50%;
+}
+a.phototable-next_photo:hover,
+a.phototable-loading:hover{
+	opacity:1.0;
+}
+.phototable-options_bar a
+{
+	outline:none;
+	padding:0px 10px 0px 10px;
+	line-height:47px;
+	text-decoration:none;
+	font-size:16px;
+	color:#333;
+	font-weight:bold;
+	text-shadow:1px 1px 1px #f0f0f0;
+	height:50px;
+	display:inline-block;
+	margin:5px 10px 0px 0px;
+	-moz-box-shadow:1px 1px 2px #666;
+	-webkit-box-shadow:1px 1px 2px #666;
+	box-shadow:1px 1px 2px #666;
+	opacity:0.8;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	background:#B8B8B8;
+}
+.phototable-options_bar a.viewall{
+	padding-left:50px;
+	background:#B8B8B8 url(../images/viewall.png) no-repeat 10px 50%;
+}
+.phototable-options_bar a.shuffle{
+	padding-left:50px;
+	background:#B8B8B8 url(../images/shuffle.png) no-repeat 10px 50%;
+}
+.phototable-options_bar a.backdesk{
+	padding-left:50px;
+	background:#B8B8B8 url(../images/backdesk.png) no-repeat 10px 50%;
+}
+
+.phototable-options_bar a:hover
+{
+	opacity:1.0;
+	text-shadow:1px 1px 1px #fff;
+	-moz-box-shadow:1px 1px 2px #fff;
+	-webkit-box-shadow:1px 1px 2px #fff;
+	box-shadow:1px 1px 2px #fff;
+}
+.phototable-photo{
+	position:absolute;
+	z-index:10;
+	border:7px solid #f9f9f9;
+	border-bottom:28px solid #f9f9f9;
+	top:0px;
+	left:0px;
+	display:none;
+	-moz-box-shadow:1px 1px 5px #555;
+	-webkit-box-shadow:1px 1px 5px #555;
+	box-shadow:1px 1px 5px #555;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	overflow:visible;
+	z-index:1;
+	background:white;
+	vertical-align:top;
+	
+}
+.phototable-hold{
+	vertical-align:middle;
+}
+.phototable img.likeBtn,.phototable img.commentBtn, .phototable img.tagBtn, .phototable img.saveBtn{
+	height:25px;
+	width:41px;
+	cursor:pointer;
+}
+.phototable img.tagBtn{
+	width:24px;
+}
+textarea.phototable-comment{
+	width:100%;
+	height:50px;
+}
+.phototable-filmstrip-mask{
+	width:100%;
+	overflow:hidden;
+	white-space:nowrap;
+	position:relative;
+	background:black;
+}
+.phototable-filmstrip{
+	background:black;
+}
+div.facebookWrap,.phototable img.saveBtn{
+	position:absolute;
+	bottom:-28px;
+	right:2px;
+}
+.phototable-photo span.phototable-delete{
+	position:absolute;
+	width:16px;
+	height:16px;
+	right:-16px;
+	top:2px;
+	cursor:pointer;
+	background:#fff url(../images/close.png) no-repeat center center;
+	-moz-border-radius:0px 8px 8px 0px;
+	-webkit-border-top-right-radius:8px;
+	-webkit-border-bottom-right-radius:8px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	-moz-box-shadow:1px 1px 5px #555;
+	-webkit-box-shadow:1px 1px 5px #555;
+	box-shadow:1px 1px 5px #555;
+}
+.phototable-paperball{
+	background:transparent url(../images/paperball.png) no-repeat center center;
+	position:absolute;
+}
