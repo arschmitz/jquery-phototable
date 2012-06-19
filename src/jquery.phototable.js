@@ -31,12 +31,17 @@ $.widget("ui.phototable",{
 		 },
 		 grid:function(){
 			var self = this;
+			self.shuffle();
+			window.setTimeout(function(){self._grid();},800);
+		 },
+		 _grid:function(){
+			var self = this;
 			$('<style type="text/css">.phototable-placeholder{display:inline-block; zoom:1; *display:inline; width:'+self.options.photoW+'px; height:'+self.options.photoW+'px; }</style>').appendTo('head');
 			self.gridActive = true;
-			self.element.find('.phototable-photo').attr('style','').css({'position':'relative',display:'inline-block',margin:'5px'}).each(function(){
+			self.element.find('.phototable-photo').stop(true,true).attr('style','').css({'position':'relative',display:'inline-block',margin:'5px'}).each(function(){
 				$(this).draggable('destroy');																													
 			});
-			self.element.sortable({placeholder:'phototable-placeholder',update:function(e,ui){ self._mouseUp(ui.item);}});
+			self.element.sortable({placeholder:'phototable-placeholder',update:function(e,ui){ self._mouseUp(ui.item);}}); 
 		 },
 		 _init:function(){
 			 var self = this;
@@ -404,7 +409,7 @@ $.widget("ui.phototable",{
 			maxHeight = 0,
 			width = 0,
 			height = 0;
-			self.grid();
+			self._grid();
 			self.film = true;
 			if($('.phototable-filmstrip-mask').length == 0){
 				this.element.append('<div class="phototable-filmstrip-mask"><div class="phototable-filmstrip-container"><div class="phototable-filmstrip"></div></div></div>');
@@ -443,8 +448,8 @@ $.widget("ui.phototable",{
 			$('.phototable-filmstrip').css({'width':stripWidth,'position':'absolute','top':0,'left':left});
 			if(self.macActive){
 				self._macEffect();
-				$('.phototable-filmstrip-mask, .phototable-filmstrip-container, .phototable-filmstrip').height(maxHeight);
-			}
+				
+			}else {$('.phototable-filmstrip-mask, .phototable-filmstrip-container, .phototable-filmstrip').height(maxHeight);}
 		 },
 		 _macEffect:function(){
 			 	var self = this;
@@ -516,6 +521,7 @@ $.widget("ui.phototable",{
 					'axis':'false',
 					'containment':self.element,
 					'drag':function(){},
+					'stop':function(){},
 					'cursorAt':{ left:self.options.dragW/2 }
 				}).removeClass('.phototable-mac-current').appendTo(self.element);
 				$(this).find('.phototable-hold img').width(self.options.photoW);
@@ -528,7 +534,7 @@ $.widget("ui.phototable",{
 			self.element.find('.phototable-photo').each(function(){
 				$photo = $(this);
 				$photo.find('.phototable-hold img').width(self.options.photoW);
-				$photo.parent().draggable('option','drag',function(){});
+				$photo.parent().draggable('option',{'drag':function(){},'stop':function(){}});
 			});
 			self._filmstrip();
 		 },
